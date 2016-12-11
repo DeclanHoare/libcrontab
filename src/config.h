@@ -24,5 +24,5 @@
 #define LIBCRONTAB_CRON_DENY "/etc/cron.deny"
 #define LIBCRONTAB_CRONTAB_LOG "/var/log/crontab.log"
 
-#endif // __LIBCRONTAB_CONFIG_H
+#endif /* __LIBCRONTAB_CONFIG_H */
 
