@@ -90,6 +90,7 @@ bool setUserCrontab(char *newUserName)
 	}
 	if (!(__libcrontab_userName = malloc(strlen(newUserName) + 1))) {
 		fprintf(stderr, "libcrontab: malloc() failed\n");
+		return false;
 	}
 	strcpy(__libcrontab_userName, newUserName);
 	return true;
