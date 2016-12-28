@@ -1,4 +1,6 @@
 /*
+	Copyright 2016 Declan Hoare
+
 	This file is part of libcrontab.
 	libcrontab is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -42,8 +44,6 @@ bool __libcrontab_crontabInitialised = false;
 
 bool __libcrontab_initialise_crontab();
 
-
-
 bool __libcrontab_initialise_crontab()
 {
 	if (!__libcrontab_crontabInitialised)
@@ -57,12 +57,14 @@ bool __libcrontab_initialise_crontab()
 			return false;
 		}
 		
-		if (!(__libcrontab_userName = malloc(strlen(__libcrontab_userEntry->pw_name) + 1))) {
+		if (!(__libcrontab_userName = malloc(strlen(__libcrontab_userEntry->pw_name) + 1)))
+		{
 			fprintf(stderr, "libcrontab: malloc() failed\n");
 			return false;
 		}
 		strcpy(__libcrontab_userName, __libcrontab_userEntry->pw_name);
-		if (!(__libcrontab_originalUserName = malloc(strlen(__libcrontab_userName) + 1))) {
+		if (!(__libcrontab_originalUserName = malloc(strlen(__libcrontab_userName) + 1)))
+		{
 			fprintf(stderr, "libcrontab: malloc() failed\n");
 			return false;
 		}
@@ -84,11 +86,13 @@ bool setUserCrontab(char *newUserName)
 		fprintf(stderr, "libcrontab: %s is not root, cannot change user\n", __libcrontab_userName);
 		return false;
 	}
-	if (!(__libcrontab_userEntry = getpwnam(newUserName))) {
+	if (!(__libcrontab_userEntry = getpwnam(newUserName)))
+	{
 		fprintf(stderr, "libcrontab: failed to retrieve passwd entry for %s\n", newUserName);
 		return false;
 	}
-	if (!(__libcrontab_userName = malloc(strlen(newUserName) + 1))) {
+	if (!(__libcrontab_userName = malloc(strlen(newUserName) + 1)))
+	{
 		fprintf(stderr, "libcrontab: malloc() failed\n");
 		return false;
 	}
@@ -142,4 +146,3 @@ char *getCrontab()
 	fclose(crontabFile);
 	return returnValue;
 }
-
