@@ -11,3 +11,16 @@ g+s to the crontabs group.
 
 You should change config.h to point to the relevant files on your
 system. I am going to set up autotools for this at a later date.
+
+## TODO
+
+Quite a bit...
+
+* check cron.allow and cron.deny before performing actions
+* logging
+* opening, closing crontab
+* delete crontab
+* syntax checking of crontab
+* formatting, adding/removing crontab job (more abstract)
+* anacron support
+* autotools
